@@ -7,6 +7,7 @@ KarenHuttonController = function() {
 
 KarenHuttonController.prototype.init = function() {
   chrome.extension.onRequest.addListener(this.onExternalRequest.bind(this));
+  this.soundManager.init();
 };
 
 /**
@@ -18,7 +19,7 @@ KarenHuttonController.prototype.init = function() {
  */
 KarenHuttonController.prototype.onExternalRequest = function(request, sender, sendResponse) {
   if (request.method == 'PlaySound') {
-    this.soundManager.play('Mode1', 'Temp');
+    this.soundManager.play(request.state ? 'minus' : 'plus');
     sendResponse({});
   }
   else {

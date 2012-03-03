@@ -1,0 +1,36 @@
+{
+  "name": "Karen Hutton Speaks",
+  "version": "0.0.1",
+  "description": "!",
+  "options_page": "options.html",
+  "page_action" : {
+	  "default_icon" : "icon16.png", 
+    "default_title" : "Right click to configure."
+  },
+  "background_page" : "background.html",
+  "permissions": [
+    "https://plus.google.com/*"
+	],
+  "icons": { 
+	  "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png",
+    "256": "icon256.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://plus.google.com/*"
+      ],
+      "js": [
+        "jquery-1.7.1.min.js",
+				"karen_hutton_injection.js"
+      ],
+      "css": [
+        "karen_hutton_injection.css"
+      ],
+      "all_frames": true
+    }
+  ],
+  "content_security_policy": "default-src * 'unsafe-inline'"
+}

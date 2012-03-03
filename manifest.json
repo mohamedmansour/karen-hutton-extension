@@ -1,16 +1,9 @@
 {
-  "name": "Karen Hutton Speaks",
+  "name": "Karen Hutton speaks Google+",
   "version": "0.0.1",
-  "description": "!",
-  "options_page": "options.html",
-  "page_action" : {
-	  "default_icon" : "/img/icon16.png", 
-    "default_title" : "Right click to configure."
-  },
+  "description": "Karen Hutton speaks to you when you +1 content on Google+!",
+  "options_page": "about.html",
   "background_page" : "background.html",
-  "permissions": [
-    "https://plus.google.com/*"
-	],
   "icons": { 
 	  "16": "/img/icon16.png",
     "48": "/img/icon48.png",

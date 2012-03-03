@@ -29,7 +29,7 @@ VersionManager.prototype.init = function() {
  * Triggered when the extension just installed.
  */
 VersionManager.prototype.onInstall = function() {
-  chrome.tabs.create({url: 'options.html'});
+  chrome.tabs.create({url: 'about.html'});
 };
 
 /**

@@ -1,0 +1,116 @@
+
+html, body {
+  font-family: 'Droid Sans', sans-serif;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #eee;
+}
+body {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+h1 {
+  text-align: center;
+  color: #333;
+  margin: 0;
+}
+h3 {
+  text-align: center;
+  margin: 0;
+  padding: 10px;
+  color: white;
+}
+#header {
+  width: 1000px;
+  margin: 0 auto;
+  height: 100px;
+  position: relative;
+}
+#header img {
+  width: 85px;
+  height: 85px;
+  position: absolute;
+  left: 70px;
+  -webkit-transform: rotate(-25deg); 
+  -webkit-transition: -webkit-transform .15s linear; 
+}
+#header img:hover {
+  -webkit-transform: rotate(0);
+}
+#header p {
+  text-align: center;
+  color: #333;
+  font-size: 0.9em;
+  margin: 5px;
+}
+#note {
+  font-weight: bold;
+}
+#people-container {
+	position: absolute;
+	top: 50%;
+	left: 0px;
+	width: 100%;
+	height: 1px;
+	overflow: visible;
+	visibility: visible;
+	display: block;
+}
+#people-contents {
+	margin-left: -500px;
+	position: absolute;
+	top: -300px;
+	left: 50%;
+	width: 1000px;
+	height: 600px;
+  opacity: 0.9;
+}
+#people {
+  width: 100%;
+  height: 500px;
+	box-shadow: 0px 4px 80px rgba(0, 0, 0, 0.8);
+  text-shadow: 0 0 !0px #CCC;
+}
+#mohamed {
+  background: url(/img/mohamed.jpg) center center;
+}
+#karen {
+  background: url(/img/karen.jpg) center center;
+}
+.person {
+  display: inline-block;
+  width: 500px;
+  height: 500px;
+  float: left;
+  position: relative;
+  opacity: 0.8;
+  -webkit-transition: opacity .15s linear; 
+}
+.person:hover {
+  opacity: 1;
+}
+.column {
+  display: inline-block;
+  width: 340px;
+  background-color: rgba(0, 0, 0, 0.7);
+  position: absolute;
+}
+#mohamed .column {
+  right: 0;
+  bottom: 10px;
+}
+
+#karen .column {
+  bottom: 10px;
+}
+
+.widget {
+  margin: 0 auto;
+  display: block;
+  width: 300px;
+}

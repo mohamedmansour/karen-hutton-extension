@@ -1,7 +1,7 @@
 {
-  "name": "Karen Hutton speaks Google+",
+  "name": "Karen Hutton: Voice+1",
   "version": "0.0.1",
-  "description": "Karen Hutton speaks to you when you +1 content on Google+!",
+  "description": "Have your +1 and -1's spoken by Karen Hutton!",
   "options_page": "about.html",
   "background_page" : "background.html",
   "icons": { 

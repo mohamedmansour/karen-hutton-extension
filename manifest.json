@@ -4,7 +4,7 @@
   "description": "!",
   "options_page": "options.html",
   "page_action" : {
-	  "default_icon" : "icon16.png", 
+	  "default_icon" : "/img/icon16.png", 
     "default_title" : "Right click to configure."
   },
   "background_page" : "background.html",
@@ -12,10 +12,10 @@
     "https://plus.google.com/*"
 	],
   "icons": { 
-	  "16": "icon16.png",
-    "48": "icon48.png",
-    "128": "icon128.png",
-    "256": "icon256.png"
+	  "16": "/img/icon16.png",
+    "48": "/img/icon48.png",
+    "128": "/img/icon128.png",
+    "256": "/img/icon256.png"
   },
   "content_scripts": [
     {
@@ -23,11 +23,11 @@
         "https://plus.google.com/*"
       ],
       "js": [
-        "jquery-1.7.1.min.js",
-				"karen_hutton_injection.js"
+        "/js/jquery-1.7.1.min.js",
+				"/js/karen_hutton_injection.js"
       ],
       "css": [
-        "karen_hutton_injection.css"
+        "/css/karen_hutton_injection.css"
       ],
       "all_frames": true
     }

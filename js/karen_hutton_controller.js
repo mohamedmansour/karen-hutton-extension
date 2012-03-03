@@ -2,12 +2,12 @@ KarenHuttonController = function() {
   var version = new VersionManager(this);
   version.init();
   
-  this.soundManager = new SoundManager();
+  this.audioManager = new AudioManager();
 };
 
 KarenHuttonController.prototype.init = function() {
   chrome.extension.onRequest.addListener(this.onExternalRequest.bind(this));
-  this.soundManager.init();
+  this.audioManager.init();
 };
 
 /**
@@ -19,10 +19,7 @@ KarenHuttonController.prototype.init = function() {
  */
 KarenHuttonController.prototype.onExternalRequest = function(request, sender, sendResponse) {
   if (request.method == 'PlaySound') {
-    this.soundManager.play(request.state ? 'minus' : 'plus');
-    sendResponse({});
+    this.audioManager.play(request.state ? 'minus' : 'plus');
   }
-  else {
-    sendResponse({});
-  }
+  sendResponse({});
 };

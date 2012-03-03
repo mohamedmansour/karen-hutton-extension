@@ -3,7 +3,7 @@
  *
  * @constructor
  */
-SoundManager = function() {
+AudioManager = function() {
   this.context = new webkitAudioContext();
   this.plusAudio = [];
   this.plusAudioAlreadyPlayed = [];
@@ -15,10 +15,10 @@ SoundManager = function() {
 /**
  * Initializes by preloading all audio tracks into buffer images.
  */
-SoundManager.prototype.init = function() {
+AudioManager.prototype.init = function() {
   var audioLoader = new AudioBufferLoader(
       this.context,
-      SoundManager.AUDIO_TRACKS.plus.concat(SoundManager.AUDIO_TRACKS.minus),
+      AudioManager.AUDIO_TRACKS.plus.concat(AudioManager.AUDIO_TRACKS.minus),
       this.finishedLoading.bind(this));
   audioLoader.load();
 };
@@ -26,16 +26,16 @@ SoundManager.prototype.init = function() {
 /**
  * Finished loading all sounds from the audio tracks defined.
  */
-SoundManager.prototype.finishedLoading = function(bufferList) {
-  this.plusAudio = bufferList.slice(0, SoundManager.AUDIO_TRACKS.plus.length);
-  this.minusAudio = bufferList.slice(SoundManager.AUDIO_TRACKS.plus.length, bufferList.length);
+AudioManager.prototype.finishedLoading = function(bufferList) {
+  this.plusAudio = bufferList.slice(0, AudioManager.AUDIO_TRACKS.plus.length);
+  this.minusAudio = bufferList.slice(AudioManager.AUDIO_TRACKS.plus.length, bufferList.length);
   this.loaded = true;
 };
 
 /**
  * List of available audio tracks that the user can choose from.
  */
-SoundManager.AUDIO_TRACKS = {
+AudioManager.AUDIO_TRACKS = {
   plus: [
     '/audio/+1-Aahhh.ogg',
     '/audio/+1-AhThankYou.ogg',
@@ -87,7 +87,7 @@ SoundManager.AUDIO_TRACKS = {
  *
  * @param {string} state Either plus or minus.
  */
-SoundManager.prototype.play = function(state) {
+AudioManager.prototype.play = function(state) {
   var type = state || 'plus';
   var buffer = this.getNextAudioBuffer(this[type + 'Audio'], this[type + 'AudioAlreadyPlayed']);
   this.stop();
@@ -105,7 +105,7 @@ SoundManager.prototype.play = function(state) {
  * @param {Array<AudioBuffer>} allowedToPlayArray Array that contains the available audio list.
  * @param {Array<AudioBuffer>} alreadyPlayedArray Array that contains the audio already played.
  */
-SoundManager.prototype.getNextAudioBuffer = function(allowedToPlayArray, alreadyPlayedArray) {
+AudioManager.prototype.getNextAudioBuffer = function(allowedToPlayArray, alreadyPlayedArray) {
   if (allowedToPlayArray.length == 0) {
     allowedToPlayArray.push.apply(allowedToPlayArray, alreadyPlayedArray);
     alreadyPlayedArray.length = 0;
@@ -119,7 +119,7 @@ SoundManager.prototype.getNextAudioBuffer = function(allowedToPlayArray, already
 /**
  * Stops audio currently in the track.
  */
-SoundManager.prototype.stop = function() {
+AudioManager.prototype.stop = function() {
   if (this.source) {
     this.source.noteOff(0);
   }

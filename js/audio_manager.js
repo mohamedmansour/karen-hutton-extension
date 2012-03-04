@@ -11,6 +11,8 @@ AudioManager = function() {
   this.plusAudioAlreadyPlayed = [];
   this.minusAudio = [];
   this.minusAudioAlreadyPlayed = [];
+  this.testAudio = [];
+  this.testAudioAlreadyPlayed = [];
   this.loaded = false;
 };
 
@@ -20,7 +22,7 @@ AudioManager = function() {
 AudioManager.prototype.init = function() {
   var audioLoader = new AudioBufferLoader(
       this.context,
-      AudioTracks.PLUS.concat(AudioTracks.MINUS),
+      AudioTracks.PLUS.concat(AudioTracks.MINUS.concat(AudioTracks.TEST)),
       this.finishedLoading.bind(this));
   audioLoader.load();
 };
@@ -30,7 +32,8 @@ AudioManager.prototype.init = function() {
  */
 AudioManager.prototype.finishedLoading = function(bufferList) {
   this.plusAudio = bufferList.slice(0, AudioTracks.PLUS.length);
-  this.minusAudio = bufferList.slice(AudioTracks.PLUS.length, bufferList.length);
+  this.minusAudio = bufferList.slice(AudioTracks.PLUS.length, AudioTracks.PLUS.length + AudioTracks.MINUS.length);
+  this.testAudio = bufferList.slice(AudioTracks.PLUS.length + AudioTracks.MINUS.length, bufferList.length);
   this.loaded = true;
 };
 

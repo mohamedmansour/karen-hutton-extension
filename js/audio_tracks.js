@@ -47,5 +47,10 @@ AudioTracks = {
     '/audio/-1-TaTa.ogg',
     '/audio/-1-TooBad.ogg',
     '/audio/-1-Whine.ogg'
+  ],
+  TEST: [
+    '/audio/test-HowBoutThis.ogg',
+    '/audio/test-HowDoesThisSound.ogg',
+    '/audio/test-IsThisBetter.ogg'
   ]
 };

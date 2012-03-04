@@ -19,16 +19,7 @@ function $(id) {
 function onLoad() {
   onRestore();
   $('button-close').addEventListener('click', onClose, false);
-}
-
-function renderGooglePlusAPI() {
-  var script = document.createElement('script');
-  script.innerHTML = 'window.___gcfg = {lang: "en"};' +
-      '(function() {var po = document.createElement("script");' +
-      'po.type = "text/javascript"; po.async = true;po.src = "https://apis.google.com/js/plusone.js";' +
-      'var s = document.getElementsByTagName("script")[0];' +
-      's.parentNode.insertBefore(po, s);})();';
-  document.body.appendChild(script);
+  $('test-volume').addEventListener('click', onTestVolume, false);
 }
 
 /**
@@ -36,6 +27,13 @@ function renderGooglePlusAPI() {
  */
 function onClose() {
   window.close();
+}
+
+/**
+ * Play test volume.
+ */
+function onTestVolume() {
+  bkg.controller.audioManager.play('test');
 }
 
 /**

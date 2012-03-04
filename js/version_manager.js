@@ -1,5 +1,7 @@
 /**
  * Maintains the extensions versioning.
+ *
+ * @author Mohamed Mansour 2012 (http://mohamedmansour.com)
  */
 VersionManager = function(controller) {
   this.controller = controller;

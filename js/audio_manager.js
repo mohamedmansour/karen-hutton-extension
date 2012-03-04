@@ -1,6 +1,7 @@
 /**
  * Sound manager uses HTML5 Web Audio.
  *
+ * @author Mohamed Mansour 2012 (http://mohamedmansour.com)
  * @constructor
  */
 AudioManager = function() {

@@ -7,7 +7,7 @@
 var bkg = chrome.extension.getBackgroundPage();
 
 // When the DOM is loaded, make sure all the saved info is restored.
-window.addEventListener('load', onLoad, false);
+window.addEventListener('DOMContentLoaded', onLoad, false);
 
 function $(id) {
   return document.getElementById(id);
@@ -19,6 +19,16 @@ function $(id) {
 function onLoad() {
   onRestore();
   $('button-close').addEventListener('click', onClose, false);
+}
+
+function renderGooglePlusAPI() {
+  var script = document.createElement('script');
+  script.innerHTML = 'window.___gcfg = {lang: "en"};' +
+      '(function() {var po = document.createElement("script");' +
+      'po.type = "text/javascript"; po.async = true;po.src = "https://apis.google.com/js/plusone.js";' +
+      'var s = document.getElementsByTagName("script")[0];' +
+      's.parentNode.insertBefore(po, s);})();';
+  document.body.appendChild(script);
 }
 
 /**

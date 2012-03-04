@@ -1,3 +1,8 @@
+/**
+ * Injection script for content.
+ *
+ * @author Mohamed Mansour 2012 (http://mohamedmansour.com)
+ */
 var PLUS_ADD_POST_NAME = 'Click to +1 this ';
 var PLUS_REMOVE_POST_NAME = 'Click to remove your +1 from this ';
 var PLUS_ADD_BUTTON_SELECTOR = 'button[title^="' + PLUS_ADD_POST_NAME + '"]';

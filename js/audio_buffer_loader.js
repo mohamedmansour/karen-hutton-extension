@@ -1,5 +1,7 @@
 /**
  * Audio buffer loader from HTML5Rocks.
+ *
+ * @author Mohamed Mansour 2012 (http://mohamedmansour.com)
  */
 AudioBufferLoader = function(context, urlList, callback) {
   this.context = context;

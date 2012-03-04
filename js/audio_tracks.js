@@ -1,5 +1,7 @@
 /**
  * List of available audio tracks that the user can choose from.
+ *
+ * @author Mohamed Mansour 2012 (http://mohamedmansour.com)
  */
 AudioTracks = {
   PLUS: [

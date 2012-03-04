@@ -80,8 +80,14 @@ h3 {
   background: url(/img/karen.jpg) center center;
 }
 #options {
-  padding: 10px 50px;
+  padding: 20px 50px;
   background-color: white;
+}
+#options p {
+  display: inline-block;
+}
+#options p  label {
+  margin: 10px;
 }
 .person {
   display: inline-block;
@@ -122,11 +128,6 @@ h3 {
   text-align: right;
 }
 
-#button-close {
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
-}
 #version {
   font-size: 0.8em;
   margin-top: 10px;

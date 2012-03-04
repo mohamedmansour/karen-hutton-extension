@@ -38,18 +38,21 @@ function onRestore() {
   var volumeElement = $('volume');
   volumeElement.addEventListener('change', function(e) {
     bkg.settings.volume = volumeElement.value;
+    bkg.controller.audioManager.setVolume(bkg.settings.volume);
   });
   volumeElement.value = bkg.settings.volume;
 
   var playPostsElement = $('play-posts');
   playPostsElement.addEventListener('click', function(e) {
     bkg.settings.play_posts = playPostsElement.checked;
+    bkg.controller.shouldPlayPosts = bkg.settings.play_posts;
   });
   playPostsElement.checked = bkg.settings.play_posts;
 
   var playCommentsElement = $('play-comments');
   playCommentsElement.addEventListener('click', function(e) {
     bkg.settings.play_comments = playCommentsElement.checked;
+    bkg.controller.shouldPlayComments = bkg.settings.play_comments;
   });
   playCommentsElement.checked = bkg.settings.play_comments;
 }

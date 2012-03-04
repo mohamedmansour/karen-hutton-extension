@@ -5,6 +5,7 @@
  */
 AudioManager = function() {
   this.context = new webkitAudioContext();
+  this.gainMode = this.context.createGainNode();
   this.plusAudio = [];
   this.plusAudioAlreadyPlayed = [];
   this.minusAudio = [];
@@ -41,9 +42,10 @@ AudioManager.prototype.play = function(state) {
   var type = state || 'plus';
   var buffer = this.getNextAudioBuffer(this[type + 'Audio'], this[type + 'AudioAlreadyPlayed']);
   this.stop();
+  this.gainMode.connect(this.context.destination);
   this.source = this.context.createBufferSource();
   this.source.buffer = buffer;
-  this.source.connect(this.context.destination);
+  this.source.connect(this.gainMode);
   this.source.noteOn(0);
 };
 
@@ -73,4 +75,11 @@ AudioManager.prototype.stop = function() {
   if (this.source) {
     this.source.noteOff(0);
   }
+};
+
+/**
+ * Sets the volume for the source.
+ */
+AudioManager.prototype.setVolume = function(fraction) {
+  this.gainMode.gain.value = fraction * fraction;
 };

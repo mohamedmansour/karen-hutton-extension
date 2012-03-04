@@ -20,6 +20,7 @@ KarenHuttonController = function() {
 KarenHuttonController.prototype.init = function() {
   chrome.extension.onRequest.addListener(this.onExternalRequest.bind(this));
   this.audioManager.init();
+  this.audioManager.setVolume(settings.volume);
 };
 
 /**
@@ -34,18 +35,9 @@ KarenHuttonController.prototype.onExternalRequest = function(request, sender, se
     // state = true if currently plus otherwise minus.
     // type = true if currently post otherwise comment.
     // We need to flip them here since we are placing that effect.
-    console.log(request.type);
     if ((request.type && this.shouldPlayPosts) || (!request.type && this.shouldPlayComments)) {
       this.audioManager.play(request.state ? 'minus' : 'plus');
     }
   }
   sendResponse({});
-};
-
-/**
- * Reload the settings to take it into effect.
- */
-KarenHuttonController.prototype.reloadSettings = function() {
-  this.shouldPlayPosts = settings.play_posts;
-  this.shouldPlayComments = settings.play_comments;
 };

@@ -1,7 +1,7 @@
 {
   "name": "Karen Hutton: Voice+1",
-  "version": "0.0.1",
-  "description": "Have your +1 and -1's spoken by Karen Hutton!",
+  "version": "0.0.2",
+  "description": "Have your Google+ +1's and Facebook likes spoken by Karen Hutton!",
   "options_page": "about.html",
   "background_page" : "background.html",
   "icons": { 
@@ -17,10 +17,17 @@
       ],
       "js": [
         "/js/jquery-1.7.1.min.js",
-				"/js/karen_hutton_injection.js"
+				"/js/karen_hutton_google_injection.js"
       ],
-      "css": [
-        "/css/karen_hutton_injection.css"
+      "all_frames": true
+    },
+    {
+      "matches": [
+        "https://www.facebook.com/*"
+      ],
+      "js": [
+        "/js/jquery-1.7.1.min.js",
+				"/js/karen_hutton_facebook_injection.js"
       ],
       "all_frames": true
     }

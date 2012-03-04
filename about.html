@@ -4,18 +4,20 @@
     <title>Karen Hutton Voices</title>
     <link href="https://plus.google.com/116805285176805120365" rel="author" />
     <link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/css/common.css" />
     <link rel="stylesheet" href="/css/about.css" />
     <script type="text/javascript" src="https://apis.google.com/js/plusone.js">{lang: 'en'}</script>
+    <script type="text/javascript" src="/js/options.js"></script>
   </head>
   <body>
-    <div id="people-container">
+    <div id="container">
+      <div id="header">
+        <img src="/img/icon128.png" />
+        <h1>Karen Hutton: Voice+1</h1>
+        <p id="note">Make sure you reload/refresh your Google+ page for this to work! Happy plussing!</p>
+        <p>To know more about the creators, make sure you add them to your circles!</p>
+      </div>
       <div id="people-contents">
-        <div id="header">
-          <img src="/img/icon128.png" />
-          <h1>Thank you for installing this extension!</h1>
-          <p id="note">Make sure you reload/refresh your Google+ page for this to work! Happy plussing!</p>
-          <p>To know more about the creators, make sure you add them to your circles!</p>
-        </div>
         <div id="people">
           <div class="person" id="mohamed">
             <div class="column">
@@ -35,6 +37,21 @@
           </div>
         </div>
       </div>
+      <div id="options">
+        <h1>Options</h1>
+        <p>
+          <label for="volume">Voices Volume: <input name="volume" id="volume" type="range"  min="0" max="1" step="0.1" />
+          <button>Test Sound Volume</button>
+        </p>
+        <p>
+          <label for="play-posts">Play on posts: <input name="play-posts" id="play-posts" type="checkbox" />
+          <label for="play-comments">Play on comments: <input name="play-comments" id="play-comments" type="checkbox" />
+        </p>
+        <p><button id="button-close">Close </button></p>
+      </div>
+    </div>
+    <div id="footer">
+     Developed by <a href="http://mohamedmansour.com">Mohamed Mansour</a> for <a href="http://karenhutton.com">Karen Hutton</a><br /><div id="version"></div>
     </div>
     <script type="text/javascript">gapi.plus.go();</script>
   </body>

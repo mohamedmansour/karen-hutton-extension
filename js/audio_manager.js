@@ -5,8 +5,8 @@
  * @constructor
  */
 AudioManager = function() {
-  this.context = new webkitAudioContext();
-  this.gainMode = this.context.createGainNode();
+  this.context = null;
+  this.gainMode = null;
   this.plusAudio = [];
   this.plusAudioAlreadyPlayed = [];
   this.minusAudio = [];
@@ -20,6 +20,8 @@ AudioManager = function() {
  * Initializes by preloading all audio tracks into buffer images.
  */
 AudioManager.prototype.init = function() {
+  this.context = new webkitAudioContext();
+  this.gainMode = this.context.createGainNode();
   var audioLoader = new AudioBufferLoader(
       this.context,
       AudioTracks.PLUS.concat(AudioTracks.MINUS.concat(AudioTracks.TEST)),

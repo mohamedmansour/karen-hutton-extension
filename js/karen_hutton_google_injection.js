@@ -3,14 +3,15 @@
  *
  * @author Mohamed Mansour 2012 (http://mohamedmansour.com)
  */
-var PLUS_ADD_POST_NAME = 'Click to +1 this ';
-var PLUS_REMOVE_POST_NAME = 'Click to remove your +1 from this ';
-var PLUS_ADD_BUTTON_SELECTOR = 'button[title^="' + PLUS_ADD_POST_NAME + '"]';
-var PLUS_REMOVE_BUTTON_SELECTOR = 'button[title^="' + PLUS_REMOVE_POST_NAME + '"]';
+var PLUS_BUTTON_SELECTOR = '[plus_plus="1"]';
 
 var plusClicked = function(e) {
-  var isPlus = e.target.title.indexOf(PLUS_ADD_POST_NAME) === 0;
-  var isPost = e.target.title.substr(-4) === 'post';
+  var realNode = $(e.target);
+  if (!realNode.attr('plus_plus')) {
+    realNode = realNode.parent();
+  }
+  var isPlus = realNode.attr('aria-pressed') === 'false';
+  var isPost = realNode.tagName === 'DIV';
   chrome.extension.sendRequest({
     method: 'PlaySound',
     state: isPlus,
@@ -18,5 +19,4 @@ var plusClicked = function(e) {
   });
 };
 
-$(document).on('click', PLUS_ADD_BUTTON_SELECTOR, plusClicked);
-$(document).on('click', PLUS_REMOVE_BUTTON_SELECTOR, plusClicked);
+$(document).on('click', PLUS_BUTTON_SELECTOR, plusClicked);
